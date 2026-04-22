@@ -5,10 +5,10 @@ const app = express();
 app.use(express.json());
 
 // TODO: Import routes
-// const userRoutes = require("./routes/userRoutes");
+const userRoutes = require("./routes/userRoutes");
 
 // TODO: Use routes
-// app.use("/api/users", userRoutes);
+app.use("/api/users", userRoutes);
 
 // Existing Route
 app.get("/", (req, res) => {
@@ -22,6 +22,12 @@ app.get("/", (req, res) => {
 //   status: "success",
 //   message: "API is live and working"
 // }
+app.get("/api/status", (req, res) => {
+  res.json({
+    status: "success",
+    message: "API is live and working"
+  });
+});
 
 const PORT = process.env.PORT || 5000;
 
